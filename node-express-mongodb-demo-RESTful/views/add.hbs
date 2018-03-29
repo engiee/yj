@@ -1,0 +1,56 @@
+<div class="row">
+        <div class="col-md-12">
+            <form action="" id="addbook">
+                <div class="form-group">
+                    <label for="title">书名</label>
+                    <input name="title" value="魔兽世界" type="text" class="form-control" placeholder="请输入书名"/>
+                </div>
+                <div class="form-group">
+                    <label for="name">类型</label>
+                    <input name="genres" value="散文" type="text" class="form-control" placeholder="请输入类型"/>
+                </div>
+                <div class="form-group">
+                    <label for="price">价格</label>
+                    <input name="price" value="88" type="text" class="form-control" placeholder="请输入价格"/>
+                </div>
+                <div class="form-group">
+                    <label for="pages">页数</label>
+                    <input name="pages" value="138" type="text" class="form-control" placeholder="请输入页数"/>
+                </div>
+                <div class="form-group">
+                    <label for="author">作者</label>
+                    <input name="author" value="Bruce Lee" type="text" class="form-control" placeholder="请输入作者"/>
+                </div>
+                <div class="form-group">
+                    <label for="publisher">出版社</label>
+                    <input name="publisher" value="精武门" type="text" class="form-control" placeholder="请输入出版社"/>
+                </div>
+                <div class="form-group">
+                    <label for="image_url">封面图</label>
+                    <input name="image_url" value="https://img3.doubanio.com/lpic/s26816452.jpg" type="text" class="form-control" placeholder="请输入封面图"/>
+                </div>
+                <div class="form-group">
+                    <label for="description">描述</label>
+                    <textarea name="description" class="form-control">风靡全球30年，唯一由李小龙真人示范的截拳道宝典，李小龙经典武学名著，一代功夫之王毕生心血之作</textarea>
+                </div>
+                <div class="form-group">
+                    <a class="btn btn-primary">提交</a>
+                </div>
+            </form>
+        </div>
+</div>
+<script>
+    $('.btn').click(function () {
+        $.ajax({
+            url:'/book',
+            type: 'POST',
+            data: $('#addbook').serialize(),
+            success: function (res) {
+                if(res._id) {
+                    alert('添加成功');
+                    window.location.href="http://localhost:3000";
+                }
+            }
+        })
+    })
+</script>

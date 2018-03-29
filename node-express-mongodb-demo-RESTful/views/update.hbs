@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="col-md-12">
+        <form action="" id="addbook">
+            <div class="form-group">
+                <label for="title">书名</label>
+                <input name="title" value="{{book.title}}" type="text" class="form-control" placeholder="请输入书名"/>
+            </div>
+            <div class="form-group">
+                <label for="name">类型</label>
+                <input name="genres" value="{{book.genres}}" type="text" class="form-control" placeholder="请输入类型"/>
+            </div>
+            <div class="form-group">
+                <label for="price">价格</label>
+                <input name="price" value="{{book.price}}" type="text" class="form-control" placeholder="请输入价格"/>
+            </div>
+            <div class="form-group">
+                <label for="pages">页数</label>
+                <input name="pages" value="{{book.pages}}" type="text" class="form-control" placeholder="请输入页数"/>
+            </div>
+            <div class="form-group">
+                <label for="author">作者</label>
+                <input name="author" value="{{book.author}}" type="text" class="form-control" placeholder="请输入作者"/>
+            </div>
+            <div class="form-group">
+                <label for="publisher">出版社</label>
+                <input name="publisher" value="精武门" type="text" class="form-control" placeholder="请输入出版社"/>
+            </div>
+            <div class="form-group">
+                <label for="image_url">封面图</label>
+                <input name="image_url" value="{{book.image_url}}" type="text" class="form-control" placeholder="请输入封面图"/>
+            </div>
+            <div class="form-group">
+                <label for="description">描述</label>
+                <textarea name="description" class="form-control">{{book.description}}</textarea>
+            </div>
+            <div class="form-group">
+                <a class="btn btn-primary">提交</a>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    $('.btn').click(function () {
+        $.ajax({
+            url:'/book/{{book._id}}',
+            type: 'PUT',
+            data: $('#addbook').serialize(),
+            success: function (res) {
+                if(res._id){
+                    alert('修改成功');
+                    window.location.href="http://localhost:3000"
+                }
+            }
+        })
+    })
+</script>
