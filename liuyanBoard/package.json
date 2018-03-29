@@ -1,0 +1,17 @@
+{
+  "name": "express_mongoDB_ADUF",
+  "version": "1.0.0",
+  "description": "实现基础功能的增删改查",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.16.0",
+    "express": "^4.14.1",
+    "formidable": "^1.1.1",
+    "mongodb": "^2.2.22"
+  }
+}
