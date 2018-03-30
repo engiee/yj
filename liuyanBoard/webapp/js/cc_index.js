@@ -75,17 +75,19 @@ Msg.prototype = {
     $("#commit").click(function() {
       $("#shibai").hide();
       $("#chenggong").hide();
-
+      if($("#xingming").val() == ''|| $("#liuyan").val() ==''){
+          layer.msg('亲，不得为空！！');
+          return false;
+      }
       $.post("/tijiao", {
         "xingming": $("#xingming").val(),
         "liuyan": $("#liuyan").val()
       }, function(result) {
-
         if (result.result == -1) {
           $("#shibai").fadeIn();
         } else if (result.result == 1) {
           //提交成功
-          layer.msg('亲，您的数据已成功打下烙印~~~~~~~')
+          layer.msg('亲，您的数据已成功打下烙印')
           $("#quanbuliuyan").html("");
           $("#xingming").val("");
           $("#liuyan").val("")

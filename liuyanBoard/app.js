@@ -1,11 +1,11 @@
 /**
- * Created by Danny on 2015/9/25 11:35.
+ * Created by wangzhen on 20158/03/25 11:35.
  */
 var express = require("express");
 var app = express();
 var db = require("./model/cc_db.js");
 
-var formidable = require('formidable');
+var formidable = require('formidable');//formidable模块实现了上传和编码图片和视频。它支持GB级上传数据处理，支持多种客户端数据提交。有极高的测试覆盖率，非常适合在生产环境中使用。
 // 包装mongo返回的id
 var ObjectId = require('mongodb').ObjectID;
 
