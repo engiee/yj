@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+</head>
+<body>
+    <h1>首页2demo</h1>
+    <button id="get">请求数据</button>
+    <button id="set">设置数据</button>
+    <script>
+        var oGet=document.getElementById("get"),
+            oSet=document.getElementById('set');
+        var userData={
+            'email':"aaa@163.com",
+            'password':"123456789"
+        }
+        var dbID=null;
+        oGet.addEventListener("click",function(e){
+            fetch('/get?id='+dbID,{
+                method: 'GET',
+                credentials: 'include',//携带cookie
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            }).then(res=>{
+                console.log(res.json())
+            })
+        })
+        oSet.addEventListener("click",function(e){
+            fetch('/set',{
+                method: 'POST',
+//                mode: 'cors',
+                credentials: 'include',//携带cookie
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(userData)
+            }).then(res=>{
+                return res.json();
+            }).then(json=>{
+                dbID=json._id
+                console.log(json._id)
+            }).catch(res=>{
+                console.log(res)
+            })
+        })
+    </script>
+</body>
+</html>
