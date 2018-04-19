@@ -19,7 +19,7 @@ export default {
   name: 'Castle',
   data () {
     return {
-      title: '测试页面'
+      title: '来自父页面的数据'
     }
   },
   components: {
