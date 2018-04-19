@@ -42,7 +42,6 @@
 .area-heat-map{
   margin: 210px auto 0;
   border:1px solid red;
-  padding: relative;
 }
 .map-chart{
   width:1800px;
