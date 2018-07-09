@@ -16,8 +16,30 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Wep',
+      project:{
+        project:"",
+        proName:"",
+      },
+      indexNum:{
+        index:1,
+        watch:"we"
+      }
     }
+  },
+  computed:{
+    thisIndex(){
+      return `${this.project.proName}122323`;
+    }
+  },
+  watch:{
+    wtathisNum(){
+      return this.indexNum.index;
+    },
+    route(){
+      this.$router.toString();
+    }
+
   }
 }
 </script>

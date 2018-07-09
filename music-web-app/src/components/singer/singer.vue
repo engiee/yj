@@ -66,6 +66,7 @@
               items: []
             }
           }
+          console.log(map[key])
           map[key].items.push(new Singer({
             name: item.Fsinger_name,
             id: item.Fsinger_mid

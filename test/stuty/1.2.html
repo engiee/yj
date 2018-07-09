@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+ <div id="app">
+     <panel :type="li.type" v-for="li in list">
+         {{li.content}}
+     </panel>
+ </div>
+
+ <template id="panel">
+     <div class="panel">
+         <div class="alert" :class="[color]" role="alert">
+             <slot></slot>
+         </div>
+     </div>
+ </template>
+
+
+ <script>
+     let panel = {
+
+         template:'#panel',
+         computed:{
+             color(){return 'alert-'+this.type}
+         },
+         props:{
+             type:{
+                 type:[String],
+                 default:"success"
+             }
+         },
+         methods:{
+
+         }
+     };
+     let vm = new Vue({
+         el:'#app',
+         data(){
+             return{
+                 list:[{
+                     type:'success',
+                     content:'一'
+                 },{
+                     type:'danger',
+                     content:'二'
+                 },{
+                     type:'warning',
+                     content:'三'
+                 }]
+             }
+         },
+         components:{panel},
+         mounted(){
+         }
+     })
+ </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="node_modules/animate.css/animate.css">
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script src="node_modules/vue-router/dist/vue-router.js"></script>
+</head>
+<body>
+ <div id="app">
+ <!-- 如果用对象作为to的属性，并且使用了参数 必须给路由起个名字，通过名字跳转 -->
+     <router-link to="/home">首页1</router-link>
+     <router-link to="/list">详情2</router-link>
+     <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" mode="out-in">
+
+         <router-view></router-view>
+
+     </transition>
+ </div>
+ <script>
+     let home = {template:'<div style="background:#d0e9c6">首页</div>'};
+     let list = {template:'<div style="background: #f0ad4e">详情</div>'};
+     let routes = [
+         {
+             path:'/home',
+             component:home,
+         },
+         {
+             path:'/list',
+             component:list,
+         }
+     ];
+     let router = new VueRouter({
+         routes
+     })
+     let vm = new Vue({
+         el:'#app',
+         router,
+         data:{},
+         mounted(){
+
+         }
+     })
+ </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script src="node_modules/vue-router/dist/vue-router.js"></script>
+</head>
+<body>
+ <div id="app">
+ <!-- 如果用对象作为to的属性，并且使用了参数 必须给路由起个名字，通过名字跳转 -->
+     <router-link :to="{name:'art',params:{c:1}}">首页1</router-link>
+     <router-link to="/article/2">详情2</router-link>
+     <router-link to="/article/3">详情3</router-link>
+     <router-view></router-view>
+ </div>
+ <script>
+     let article = {template:'<div>第 {{$route.params.c}} 篇文章</div>'};
+
+     let routes = [
+         {
+             path:'/article/:c',
+             component:article,
+             name:'art'
+         },
+     ];
+     let router = new VueRouter({
+         routes
+     })
+     let vm = new Vue({
+         el:'#app',
+         router,
+         data:{},
+         components(){
+
+         },
+         mounted(){
+             console.log(1);
+         }
+     })
+ </script>
+</body>
+</html>
