@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='uft-8'>
+    <title></title>
+    <style type="text/css">
+        #container{
+            position:relative;
+            width: 50px;
+            height: 50px;
+        }
+
+        #container span{
+            width:50px;
+            height: 50px;
+            top:0px;
+            position:absolute;
+        }
+        #container span:before{
+            content:"(";
+            color:blue;
+            position: absolute;
+            opacity: 0;
+            -webkit-animation: bodong 1.5s  ease;
+        }
+        #container span:after{
+            content:")";
+            color:blue;
+            position: absolute;
+            opacity: 0;
+            -webkit-animation: bodong 1.5s  ease;
+        }
+        /*第一个*/
+        #container span:first-child:before{
+            font-size: 12px;
+            left:10px;
+        }
+        #container span:first-child:after{
+            font-size: 12px;
+            left:30px;
+        }
+        #container span:first-child:before,#container span:first-child:after{
+            -webkit-animation-delay:.5s;
+        }
+        /*第二个*/
+        #container span:nth-child(2):before{
+            font-size: 12px;
+            left:10px;
+        }
+        #container span:nth-child(2):after{
+            font-size: 15px;
+            left:40px;
+        }
+        #container span:nth-child(2):before,#container span:nth-child(2):after{
+            -webkit-animation-delay:1s;
+        }
+
+        /*第三个*/
+        #container span:nth-child(3):before{
+            font-size: 12px;
+            left:10px;
+        }
+        #container span:nth-child(3):after{
+            font-size: 18px;
+            left:50px;
+        }
+        #container span:nth-child(3):before,#container span:nth-child(3):after{
+            -webkit-animation-delay:1.5s;
+        }
+        /*第四个*/
+        #container span:nth-child(4):before{
+            font-size: 12px;
+            left:10px;
+        }
+        #container span:nth-child(4):after{
+            font-size: 12px;
+            left:40px;
+        }
+        #container span:nth-child(4):before,#container span:nth-child(4):after{
+            -webkit-animation-delay:2s;
+        }
+        /*第五个*/
+        #container span:nth-child(5):before{
+            font-size: 12px;
+            left:10px;
+        }
+        #container span:nth-child(5):after{
+            font-size: 12px;
+            left:30px;
+        }
+        #container span:nth-child(5):before,#container span:nth-child(5):after{
+            -webkit-animation-delay:2.5s;
+        }
+        @-webkit-keyframes bodong{
+            0%{opacity: 1;}
+            30%{opacity: 1;}
+            60%{opacity: 1;}
+            80%{opacity: 1;}
+            100%{opacity: 1;}
+        }
+
+    </style>
+</head>
+<body>
+<div id='container'>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+</body>
+</html>
