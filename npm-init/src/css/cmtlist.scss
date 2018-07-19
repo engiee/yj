@@ -1,0 +1,17 @@
+.title{
+    color:red;
+    text-align:center;
+}
+#cmtTitle{
+    font-size: 12px;
+}
+/*
+  css模块化 只针对类选择器 和 id选择器有效 不会对标签选择器模块化
+*/
+h1{
+    font-style: italic;
+}
+
+:global(.test){
+    font-style: italic;
+}

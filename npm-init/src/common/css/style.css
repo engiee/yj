@@ -1,0 +1,4 @@
+#myDiv .ant-menu-horizontal > .ant-menu-item > a{
+    display: inline;
+    text-decoration: none;
+}
