@@ -3,9 +3,23 @@ console.log('sdsd');
 //1.导入包
 import React from 'react'
 import ReactDOM from 'react-dom'
+import {BrowserRouter as Router ,HashRouter , MemoryRouter, Route , Switch , Redirect} from 'react-router-dom' //设置404和跳转都要先加入Switch的支持，在制作404时一定记得要把404的Route设置到所有路由的后边。跳转时使用Redirect标签，这个很容易实现。
 import Hello from '@/components/Hello' 
 import CmtList from '@/components/CmtList' 
-import '@/components/class'
+import BindEvent from '@/components/BindEvent' 
+import BindInputValue from '@/components/BindInputValue' 
+import Component1 from '@/components/component1'
+import Component2 from '@/components/component2'
+import Component3 from '@/components/component3'
+
+//引入公共样式
+import 'bootstrap/dist/css/bootstrap.css'
+import '@/common/css/style.css'
+
+import Nav from '@/nav';
+import Menu1 from '@/menu'
+import Error from './error';
+
 //2.创建虚拟dom元素
 //虚拟dom元素：用js对象的形式，来表示DOM 和 DOM 之间的嵌套关系
 
@@ -48,10 +62,23 @@ class Movie extends React.Component {
     }
 }
 
-const myDiv = <div id="myDiv">
-    <Movie {...user}></Movie>
-    <CmtList></CmtList>
-</div>
+const myDiv =<div id="myDiv">
 
+   <HashRouter basename="demo">
+        <Menu1></Menu1>
+   </HashRouter>
+   <HashRouter basename="demo">
+   <div>
+      <Nav/>
+        <Switch>
+            <Route exact path="/" component={Component1} />
+            <Route  path="/Component2" component={Component2} />
+            <Route  path="/Component3/:param" component={Component3} />
+            <Redirect from="/redirect" to="/Component2" />
+            <Route  component={Error} />
+        </Switch>
+    </div>
+     </HashRouter>
+   </div>
 
 ReactDOM.render(myDiv,document.getElementById("app"))
